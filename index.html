@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-shop - Mikiny a Trička</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo fw-bold">Logo</div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Obchod</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Registrace</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Novinky</a></li>
+                    <li class="nav-item"><a href="#" id="cart" class="nav-link text-white">Košík</a></li>
+                </ul>
+            </nav>
+            <div class="cart-rollout position-absolute bg-white border shadow" id="cartRollout" style="top: 60px; right: 20px; width: 300px; display: none;">
+                <div class="cart-item d-flex justify-content-between p-2 border-bottom">
+                    <span>Produkt 1</span>
+                    <span>500 Kč</span>
+                </div>
+                <div class="cart-item d-flex justify-content-between p-2 border-bottom">
+                    <span>Produkt 2</span>
+                    <span>400 Kč</span>
+                </div>
+                <div class="cart-item d-flex justify-content-between p-2">
+                    <span>Produkt 3</span>
+                    <span>300 Kč</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-4">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="filterSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtr a Řazení
+                    </button>
+                    <div class="dropdown-menu p-4" aria-labelledby="filterSortDropdown" style="min-width: 300px;">
+                        <form id="filterForm">
+                            <div class="mb-3">
+                                <label for="filterColor" class="form-label">Barva</label>
+                                <select id="filterColor" class="form-select">
+                                    <option value="">Vyberte barvu</option>
+                                    <option value="bila">Bílá</option>
+                                    <option value="cerna">Černá</option>
+                                    <option value="modra">Modrá</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="filterPrice" class="form-label">Maximální cena</label>
+                                <input type="number" id="filterPrice" class="form-control" placeholder="Zadejte cenu">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Velikost</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="sizeS" value="S">
+                                        <label class="form-check-label" for="sizeS">S</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="sizeM" value="M">
+                                        <label class="form-check-label" for="sizeM">M</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="sizeL" value="L">
+                                        <label class="form-check-label" for="sizeL">L</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Pohlaví</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male">
+                                        <label class="form-check-label" for="genderMale">Muž</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female">
+                                        <label class="form-check-label" for="genderFemale">Žena</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="filterKeyword" class="form-label">Klíčové slovo</label>
+                                <input type="text" id="filterKeyword" class="form-control" placeholder="Zadejte klíčové slovo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="sortPrice" class="form-label">Řazení podle ceny</label>
+                                <select id="sortPrice" class="form-select">
+                                    <option value="">Vyberte</option>
+                                    <option value="asc">Od nejnižší</option>
+                                    <option value="desc">Od nejvyšší</option>
+                                </select>
+                            </div>
+                            <button type="button" id="applyFilters" class="btn btn-primary w-100">Použít filtry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 product-list">
+            <div class="col product" data-color="cerna" data-price="500" data-size="M" data-gender="female" data-keywords="stylova">
+                <div class="card h-100">
+                    <img src="img/angelstriad.webp" class="card-img-top" alt="Mikina 1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 1</h5>
+                        <p class="card-text">500 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="cerna" data-price="600" data-size="L" data-gender="male" data-keywords="klasicka">
+                <div class="card h-100">
+                    <img src="img/damnedorblessed.webp" class="card-img-top" alt="Mikina 2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 2</h5>
+                        <p class="card-text">600 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="modra" data-price="550" data-size="S" data-gender="female" data-keywords="moderni">
+                <div class="card h-100">
+                    <img src="img/eaglev2.webp" class="card-img-top" alt="Mikina 3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 3</h5>
+                        <p class="card-text">550 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="cerna" data-price="450" data-size="S" data-gender="female" data-keywords="lehka">
+                <div class="card h-100">
+                    <img src="img/eternallyblessed.webp" class="card-img-top" alt="Mikina 4">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 4</h5>
+                        <p class="card-text">450 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="modra" data-price="700" data-size="L" data-gender="male" data-keywords="tepla">
+                <div class="card h-100">
+                    <img src="img/eternallyblessedlogo.webp" class="card-img-top" alt="Mikina 5">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 5</h5>
+                        <p class="card-text">700 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="bila" data-price="300" data-size="M" data-gender="female" data-keywords="klasicka">
+                <div class="card h-100">
+                    <img src="img/eternallyblessedzip.webp" class="card-img-top" alt="Mikina 6">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 6</h5>
+                        <p class="card-text">300 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="cerna" data-price="800" data-size="L" data-gender="male" data-keywords="stylova">
+                <div class="card h-100">
+                    <img src="img/eternalrose.webp" class="card-img-top" alt="Mikina 7">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 7</h5>
+                        <p class="card-text">800 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="modra" data-price="350" data-size="S" data-gender="female" data-keywords="lehka">
+                <div class="card h-100">
+                    <img src="img/higherthanheaven.webp" class="card-img-top" alt="Mikina 8">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 8</h5>
+                        <p class="card-text">350 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="bila" data-price="500" data-size="M" data-gender="male" data-keywords="tepla">
+                <div class="card h-100">
+                    <img src="img/international.webp" class="card-img-top" alt="Mikina 9">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 9</h5>
+                        <p class="card-text">500 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="cerna" data-price="400" data-size="S" data-gender="female" data-keywords="moderni">
+                <div class="card h-100">
+                    <img src="img/inthahood.webp" class="card-img-top" alt="Mikina 10">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 10</h5>
+                        <p class="card-text">400 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="modra" data-price="600" data-size="L" data-gender="male" data-keywords="klasicka">
+                <div class="card h-100">
+                    <img src="img/metamorphosev4.webp" class="card-img-top" alt="Mikina 11">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 11</h5>
+                        <p class="card-text">600 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="bila" data-price="700" data-size="M" data-gender="female" data-keywords="lehka">
+                <div class="card h-100">
+                    <img src="img/rising.webp" class="card-img-top" alt="Mikina 12">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 12</h5>
+                        <p class="card-text">700 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="cerna" data-price="300" data-size="S" data-gender="male" data-keywords="stylova">
+                <div class="card h-100">
+                    <img src="img/royalangelic.webp" class="card-img-top" alt="Mikina 13">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 13</h5>
+                        <p class="card-text">300 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="modra" data-price="450" data-size="M" data-gender="female" data-keywords="moderni">
+                <div class="card h-100">
+                    <img src="img/saintv1.webp" class="card-img-top" alt="Mikina 14">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 14</h5>
+                        <p class="card-text">450 Kč</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col product" data-color="bila" data-price="800" data-size="L" data-gender="male" data-keywords="tepla">
+                <div class="card h-100">
+                    <img src="img/spirit.webp" class="card-img-top" alt="Mikina 15">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mikina 15</h5>
+                        <p class="card-text">800 Kč</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
