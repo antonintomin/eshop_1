@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-shop - Mikiny a Trička</title>
+    <title>E-shop - Mikiny</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <style>
+        header{
+            background-color:(#030303);
+        }
+
+        body{
+            background-image: linear-gradient(to bottom, #303030, #030303);
+        }
+        footer{
+            background-color:(#030303);
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: none;
+        }
+        .card-body{
+            flex-grow: 1;
+        }   
+        
+    </style>
     <header class="bg-dark text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo fw-bold">Logo</div>
+            <div class="logo fw-bold">MJG</div>
             <nav>
                 <ul class="nav">
                     <li class="nav-item"><a href="#" class="nav-link text-white">Obchod</a></li>
@@ -107,6 +129,7 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 product-list">
+            <a href="detail.html" class="card-link">
             <div class="col product" data-color="cerna" data-price="500" data-size="M" data-gender="female" data-keywords="stylova">
                 <div class="card h-100">
                     <img src="img/angelstriad.webp" class="card-img-top" alt="Mikina 1">
@@ -116,6 +139,7 @@
                     </div>
                 </div>
             </div>
+            </a> 
             <div class="col product" data-color="cerna" data-price="600" data-size="L" data-gender="male" data-keywords="klasicka">
                 <div class="card h-100">
                     <img src="img/damnedorblessed.webp" class="card-img-top" alt="Mikina 2">
@@ -244,6 +268,38 @@
             </div>
         </div>
     </div>
+    <footer class="bg-dark text-white py-4 mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>O nás</h5>
+                    <p>Jsme moderní e-shop zaměřený na stylové mikiny, které spojují kvalitu a jedinečný design.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Rychlé odkazy</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Obchod</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Registrace</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Novinky</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Kontakt</h5>
+                    <p>Email: <a href="mailto:info@mjgshop.cz" class="text-white text-decoration-none">info@mjgshop.cz</a></p>
+                    <p>Telefon: +420 123 456 789</p>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <small>&copy; 2025 MJG E-shop. Všechna práva vyhrazena.</small>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
