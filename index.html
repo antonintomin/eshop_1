@@ -5,30 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-shop - Mikiny</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <style>
-        header{
-            background-color:(#030303);
-        }
-
-        body{
-            background-color: rgb(173, 173, 173);
-        }
-        footer{
-            background-color:(#030303);
-        }
-        .card{
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            border: none;
-        }
-        .card-body{
-            flex-grow: 1;
-        }   
-        
-    </style>
     <header class="bg-dark text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="logo fw-bold">MJG</div>
@@ -37,24 +16,31 @@
                     <li class="nav-item"><a href="#" class="nav-link text-white">Obchod</a></li>
                     <li class="nav-item"><a href="#" class="nav-link text-white">Registrace</a></li>
                     <li class="nav-item"><a href="#" class="nav-link text-white">Novinky</a></li>
-                    <li class="nav-item"><a href="#" id="cart" class="nav-link text-white">Košík</a></li>
                 </ul>
             </nav>
-            <div class="cart-rollout position-absolute bg-white border shadow" id="cartRollout" style="top: 60px; right: 20px; width: 300px; display: none;">
-                <div class="cart-item d-flex justify-content-between p-2 border-bottom">
-                    <span>Produkt 1</span>
-                    <span>500 Kč</span>
-                </div>
-                <div class="cart-item d-flex justify-content-between p-2 border-bottom">
-                    <span>Produkt 2</span>
-                    <span>400 Kč</span>
-                </div>
-                <div class="cart-item d-flex justify-content-between p-2">
-                    <span>Produkt 3</span>
-                    <span>300 Kč</span>
-                </div>
-            </div>
-        </div>
+<div class="dropdown text-end">
+    <button class="btn btn-dark btn-cart dropdown-toggle" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Košík (3)
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown" style="min-width: 300px;">
+        <li class="dropdown-item d-flex justify-content-between">
+            <span>Angel's triad</span>
+            <span>1 699 Kč</span>
+        </li>
+        <li class="dropdown-item d-flex justify-content-between">
+            <span>Damned or Blessed</span>
+            <span>1 699 Kč</span>
+        </li>
+        <li class="dropdown-item d-flex justify-content-between">
+            <span>Eagle v2</span>
+            <span>1 499 Kč</span>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-item text-center">
+            <button class="btn btn-secondary w-100">Pokračovat k platbě</button>
+        </li>
+    </ul>
+</div>
     </header>
 
     <div class="container my-4">
@@ -121,7 +107,7 @@
                                     <option value="desc">Od nejvyšší</option>
                                 </select>
                             </div>
-                            <button type="button" id="applyFilters" class="btn btn-primary w-100">Použít filtry</button>
+                            <button type="button" id="applyFilters" class="btn btn-secondary w-100">Použít filtry</button>
                         </form>
                     </div>
                 </div>
@@ -135,7 +121,7 @@
                     <img src="img/angelstriad.webp" class="card-img-top" alt="Mikina 1">
                     <div class="card-body text-center">
                         <h5 class="card-title">Angel's triad</h5>
-                        <p class="card-text">500 Kč</p>
+                        <p class="card-text">1 699 Kč</p>
                     </div>
                 </div>
             </div>
@@ -145,7 +131,7 @@
                     <img src="img/damnedorblessed.webp" class="card-img-top" alt="Mikina 2">
                     <div class="card-body text-center">
                         <h5 class="card-title">Damned or Blessed</h5>
-                        <p class="card-text">600 Kč</p>
+                        <p class="card-text">1 699 Kč</p>
                     </div>
                 </div>
             </div>
@@ -154,7 +140,7 @@
                     <img src="img/eaglev2.webp" class="card-img-top" alt="Mikina 3">
                     <div class="card-body text-center">
                         <h5 class="card-title">Eagle v2</h5>
-                        <p class="card-text">550 Kč</p>
+                        <p class="card-text">1 499</p>
                     </div>
                 </div>
             </div>
@@ -163,7 +149,7 @@
                     <img src="img/eternallyblessed.webp" class="card-img-top" alt="Mikina 4">
                     <div class="card-body text-center">
                         <h5 class="card-title">Eternally blessed</h5>
-                        <p class="card-text">450 Kč</p>
+                        <p class="card-text">1 699 Kč</p>
                     </div>
                 </div>
             </div>
@@ -172,7 +158,7 @@
                     <img src="img/eternallyblessedlogo.webp" class="card-img-top" alt="Mikina 5">
                     <div class="card-body text-center">
                         <h5 class="card-title">Eternally blessed logo</h5>
-                        <p class="card-text">700 Kč</p>
+                        <p class="card-text">1 359 Kč</p>
                     </div>
                 </div>
             </div>
@@ -181,7 +167,7 @@
                     <img src="img/eternallyblessedzip.webp" class="card-img-top" alt="Mikina 6">
                     <div class="card-body text-center">
                         <h5 class="card-title">Eternally blessed zip</h5>
-                        <p class="card-text">300 Kč</p>
+                        <p class="card-text">1 699 Kč</p>
                     </div>
                 </div>
             </div>
@@ -190,7 +176,7 @@
                     <img src="img/eternalrose.webp" class="card-img-top" alt="Mikina 7">
                     <div class="card-body text-center">
                         <h5 class="card-title">Eternal rose</h5>
-                        <p class="card-text">800 Kč</p>
+                        <p class="card-text">1 499 Kč</p>
                     </div>
                 </div>
             </div>
@@ -199,7 +185,7 @@
                     <img src="img/higherthanheaven.webp" class="card-img-top" alt="Mikina 8">
                     <div class="card-body text-center">
                         <h5 class="card-title">Higher than heaven</h5>
-                        <p class="card-text">350 Kč</p>
+                        <p class="card-text">1 359 Kč</p>
                     </div>
                 </div>
             </div>
@@ -208,7 +194,7 @@
                     <img src="img/international.webp" class="card-img-top" alt="Mikina 9">
                     <div class="card-body text-center">
                         <h5 class="card-title">international</h5>
-                        <p class="card-text">500 Kč</p>
+                        <p class="card-text">1 499 Kč</p>
                     </div>
                 </div>
             </div>
@@ -217,7 +203,7 @@
                     <img src="img/inthahood.webp" class="card-img-top" alt="Mikina 10">
                     <div class="card-body text-center">
                         <h5 class="card-title">In tha hood</h5>
-                        <p class="card-text">400 Kč</p>
+                        <p class="card-text">1 899 Kč</p>
                     </div>
                 </div>
             </div>
@@ -226,7 +212,7 @@
                     <img src="img/metamorphosev4.webp" class="card-img-top" alt="Mikina 11">
                     <div class="card-body text-center">
                         <h5 class="card-title">Metamorphose v4</h5>
-                        <p class="card-text">600 Kč</p>
+                        <p class="card-text">1 899 Kč</p>
                     </div>
                 </div>
             </div>
@@ -235,7 +221,7 @@
                     <img src="img/rising.webp" class="card-img-top" alt="Mikina 12">
                     <div class="card-body text-center">
                         <h5 class="card-title">Rising</h5>
-                        <p class="card-text">700 Kč</p>
+                        <p class="card-text">1 359 Kč</p>
                     </div>
                 </div>
             </div>
@@ -244,7 +230,7 @@
                     <img src="img/royalangelic.webp" class="card-img-top" alt="Mikina 13">
                     <div class="card-body text-center">
                         <h5 class="card-title">Royal angelic</h5>
-                        <p class="card-text">300 Kč</p>
+                        <p class="card-text">1 699 Kč</p>
                     </div>
                 </div>
             </div>
@@ -253,7 +239,7 @@
                     <img src="img/saintv1.webp" class="card-img-top" alt="Mikina 14">
                     <div class="card-body text-center">
                         <h5 class="card-title">Saint v1</h5>
-                        <p class="card-text">450 Kč</p>
+                        <p class="card-text">1 699 Kč</p>
                     </div>
                 </div>
             </div>
@@ -262,7 +248,7 @@
                     <img src="img/spirit.webp" class="card-img-top" alt="Mikina 15">
                     <div class="card-body text-center">
                         <h5 class="card-title">Spirit</h5>
-                        <p class="card-text">800 Kč</p>
+                        <p class="card-text">1 359 Kč</p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,31 @@
+header {
+    background-color: #030303;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #dadada, #939393, #dadada, #939393, #dadada);
+}
+
+footer {
+    background-color: #030303;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: none;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2{
+    color: black;
+}
