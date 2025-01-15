@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Košík</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="">
+</head>
+
+<body class="bg-light">
+    <div class="container my-5">
+        <div class="row">
+            <!-- Levá strana -->
+            <div class="col-md-6">
+                <h2>Způsob platby</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Způsob platby</label>
+                        <select class="form-select" id="paymentMethod" required>
+                            <option value="" selected disabled>Vyberte způsob platby</option>
+                            <option>Platba kartou</option>
+                            <option>Bankovní převod</option>
+                            <option>Dobírka</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="deliveryAddress" class="form-label">Adresa dodání</label>
+                        <textarea class="form-control" id="deliveryAddress" rows="3" placeholder="Zadejte adresu" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Dokončit nákup</button>
+                </form>
+            </div>
+
+            <!-- Pravá strana -->
+            <div class="col-md-6">
+                <div class="text-center mb-4">
+                    <img src="logo.png" alt="Logo" class="img-fluid" style="max-height: 100px;">
+                </div>
+
+                <h2>Košík</h2>
+                <div class="border rounded p-3 mb-3">
+                    <!-- Produkt 1 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="product1.jpg" alt="Produkt 1" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="ms-3">
+                            <h6 class="mb-0">Produkt 1</h6>
+                            <small class="text-muted">Cena: 500 Kč</small>
+                        </div>
+                    </div>
+                    <!-- Produkt 2 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="product2.jpg" alt="Produkt 2" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="ms-3">
+                            <h6 class="mb-0">Produkt 2</h6>
+                            <small class="text-muted">Cena: 300 Kč</small>
+                        </div>
+                    </div>
+                    <!-- Produkt 3 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="product3.jpg" alt="Produkt 3" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="ms-3">
+                            <h6 class="mb-0">Produkt 3</h6>
+                            <small class="text-muted">Cena: 200 Kč</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="discountCode" class="form-label">Slevový kód</label>
+                    <input type="text" class="form-control" id="discountCode" placeholder="Zadejte slevový kód">
+                </div>
+
+                <div class="border rounded p-3">
+                    <h5>Celková cena:</h5>
+                    <p>Bez DPH: <strong>800 Kč</strong></p>
+                    <p>S DPH: <strong>968 Kč</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
